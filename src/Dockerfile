@@ -6,5 +6,5 @@ COPY . /app
 
 ENV PYTHONUNBUFFERED=1
 
-EXPOSE 8000
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--log-level", "debug"]
+EXPOSE 9999
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "9999", "--log-level", "debug"]
