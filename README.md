@@ -19,7 +19,7 @@ docker build -t fastapi-app src/
 docker run -it --rm -p 9999:9999 fastapi-app
 ```
 
-```
+```sh
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 set Path=C:\Users\Dell\.local\bin;%Path%   (cmd)
 $env:Path = "C:\Users\Dell\.local\bin;$env:Path"   (powershell)
@@ -37,19 +37,16 @@ sudo chmod 644 init.sql
 
 ## Test endpoints with curl
 
-# Health check
+### Health check
 
-```
+```sh
 curl -i http://localhost:9999/health
 ```
 
-# Payments POST
+### Payments POST
 
-```
-curl -i -X POST http://localhost:9999/payments \
-  -H "Content-Type: application/json" \
-  -d '{"correlationId": "b3b8c7e2-8e2a-4c2a-9e2a-8e2a4c2a9e2a", "amount": 123.45}'
-
+```sh
+curl.exe -i -X POST http://localhost:9999/payments -H "Content-Type: application/json" -d '{\"correlationId\": \"b7156fc2-e594-4121-a984-4c37345c7941\", \"amount\": 12.45}'
 
 curl.exe -i -X POST http://localhost:8002/payments -H "Content-Type: application/json" -d '{\"correlationId\": \"b7156fc2-e594-4121-a984-4c37345c7941\", \"amount\": 12.45, \"requestedAt\": \"2025-07-21T12:34:56.000Z\"}'
 
@@ -61,6 +58,6 @@ curl.exe -i http://localhost:8002/payments/service-health
 
 # Payments summary
 
-```
+```sh
 curl -i "http://localhost:9999/payments-summary?from=2020-07-10T12:34:56.000Z&to=2020-07-10T12:35:56.000Z"
 ```
